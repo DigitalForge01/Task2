@@ -1,0 +1,86 @@
+1. Examine Sender’s Email Address for Spoofing
+From: no-reply@microsoft-support.xyz
+
+Red flag: Legitimate Microsoft emails come from domains like @accountprotection.microsoft.com, @mail.microsoft.com, or @microsoft.com—not microsoft-support.xyz
+
+
+2.Check email headers for discrepancies (using online header analyzer)
+Given below is the result after analysing 
+Summary
+Subject: Reminder! Office_365_Renewal.
+Message Id: <ABC123XYZ@mail.xyz>
+Creation time:  (Delivered after 1 second)
+From: Microsoft 365 Family Subscription <no-reply@microsoft-support.xyz>
+Reply to: support@microsoft-support.xyz
+To: victim@example.com
+
+Received
+Hop: 1
+From: i-attack-server.net (203.0.113.45)
+By: mail.xyz
+With: SMTP
+Date: 1/1/2024 10:42:33 AM
+Percent: 0
+
+Hop: 2
+From: unknown (HELO mail.xyz) (203.0.113.45)
+By: mail.protection.outlook.com
+With: SMTP
+Date: 1/1/2024 10:42:34 AM
+Delay: 1 second
+Percent: 100
+
+ForefrontAntiSpamReport
+Connecting IP Address: 203.0.113.45
+Source header: CIP:203.0.113.45; CTRY:US; LANG:en; SCL:6; SFV:SPM; PH:0; CAT:PHSH; SFV:SFR;
+Unknown fields:  CTRY:US; LANG:en; SCL:6; SFV:SPM; PH:0; CAT:PHSH; SFV:SFR;
+
+AntiSpamReport
+Bulk Complaint Level: 2
+Source header: BCL:2; PCL:0; RULEID:(123456)(789); SRV:SPAM;
+Unknown fields:  PCL:0; RULEID:(123456)(789); SRV:SPAM;
+
+Other
+<no-reply@microsoft-support.xyz>
+spf=fail (sender IP not authorized) smtp.mailfrom=microsoft-support.xyz; dkim=none; dmarc=fail
+1.0
+text/html; charset=UTF-8
+
+The Analysis
+The received path showing that the sending IP is suspicious and unrelated to Microsoft’s infrastructure.
+Authentication failures: SPF = fail, DKIM = none, DMARC = fail.
+Anti-phishing indicators in the X-Forefront-Antispam-Report and X-Microsoft-Antispam headers, showing categories like PHSH (phishing) and SPOOF.
+
+
+3. Identify Suspicious Links or Attachments
+The “Pay For Subscription” button links to https://olocierew.net/ssl?...
+
+This domain is not Microsoft-related—a common phishing tactic to steal login credentials or spread malware
+
+
+4. Look for Urgent or Threatening Language
+“Subscription Expires on January 6” and “We Will Suspend Your Subscription” create unnecessary urgency, encouraging users to act fast without thinking.
+
+
+5. Note Any Mismatched URLs 
+
+Hovering over “Pay For Subscription” reveals the non‑Microsoft domain.
+
+Display text appears Microsoft‑legitimate, actual URL points to a third-party phishing site.
+
+
+6. Verify Presence of Spelling or Grammar Errors
+Minor errors such as “Office_365_Renewal” with an underscore, odd capitalization/punctuation, and unnatural phrasing like “Will Be Extended from Your Current Subscription End Date.”
+
+
+7.Summary
+Spoofed sender address: The sender domain (microsoft‑support.xyz) doesn’t match the legitimate organization, a classic sign of deception.
+
+Failed authentication: SPF/DKIM/DMARC results fail or don’t align, suggesting emails are sent from unauthorized origins.
+
+Malicious link: The displayed button opens a non‑Microsoft URL, hiding the actual phishing domain.
+
+Urgent threat language: The email pressures users to act quickly—this tactic is common in phishing scams.
+Wikipedia
+
+Spelling issues & generic greeting: Poor formatting, grammar mistakes, and impersonal salutation raise suspicion.
