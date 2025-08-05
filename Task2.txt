@@ -81,6 +81,6 @@ Failed authentication: SPF/DKIM/DMARC results fail or don’t align, suggesting 
 Malicious link: The displayed button opens a non‑Microsoft URL, hiding the actual phishing domain.
 
 Urgent threat language: The email pressures users to act quickly—this tactic is common in phishing scams.
-Wikipedia
 
 Spelling issues & generic greeting: Poor formatting, grammar mistakes, and impersonal salutation raise suspicion.
+
